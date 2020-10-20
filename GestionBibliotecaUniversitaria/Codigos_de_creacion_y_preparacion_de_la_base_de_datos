@@ -1,0 +1,75 @@
+/*ATENCION*/
+/*PARA EL CORRECTO FUNCIONAMIENTO DE LA INSERCION DE ELEMENTOS EN LAS TABLAS, LA OPCION DE SAFE UPDATES DEBERÁ ESTA DESACTIVADA*/
+
+/*Codigo de creacion de la base de Datos*/
+
+	CREATE SCHEMA `PruebaBBDD` ;
+
+/*Codigo de las diferentes tablas*/
+
+CREATE TABLE `Libros` (
+  `key` int(11) NOT NULL,
+  `Descripcion` varchar(150) NOT NULL,
+  `Titulo` varchar(45) NOT NULL,
+  `ISBN` int(11) NOT NULL,
+  `Genero` varchar(45) NOT NULL,
+  `Estado` varchar(45) NOT NULL,
+  `PVP` double NOT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Propietario` varchar(45) DEFAULT NULL,
+  `CodigoAdmin` int(11) DEFAULT NULL,
+  `Autor` varchar(45) NOT NULL,
+  `CodigoIdentificativo` int(11) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+CREATE TABLE `Solicitudes` (
+  `key` int(11) NOT NULL,
+  `ISBN` int(11) NOT NULL,
+  `codigoIdentificativo` int(11) NOT NULL,
+  `Autor` varchar(45) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+CREATE TABLE `Usuarios` (
+  `key` int(11) NOT NULL,
+  `login` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `numeroLibrosPrestados` int(11) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+/*Codigo de las filas con las que cuenta la base de datos por defecto*/
+
+INSERT INTO `PruebaBBDD`.`Usuarios` (`key`, `login`, `password`, `nombre`, `numeroLibrosPrestados`) VALUES ('0', 'Sergio.Silvestre@alu.es', 'sergio', 'Sergio Silvestre Pavon', '0');
+INSERT INTO `PruebaBBDD`.`Usuarios` (`key`, `login`, `password`, `nombre`, `numeroLibrosPrestados`) VALUES ('1', 'JosueCarlos.Zenteno@alu.es', 'josue', 'Josue Carlos Zenteno Yave', '0');
+INSERT INTO `PruebaBBDD`.`Usuarios` (`key`, `login`, `password`, `nombre`, `numeroLibrosPrestados`) VALUES ('2', 'MJesus.Duenas1@alu.es', 'mj', 'Maria Jesus Dueñas Recuero', '0');
+INSERT INTO `PruebaBBDD`.`Usuarios` (`key`, `login`, `password`, `nombre`, `numeroLibrosPrestados`) VALUES ('3', 'Adrian.Ruiz6@alu.es', 'adrian', 'Adrian Ruiz Esteban', '0');
+INSERT INTO `PruebaBBDD`.`Usuarios` (`key`, `login`, `password`, `nombre`, `numeroLibrosPrestados`) VALUES ('4', 'JoseAntonio.Cruz@prof.es', 'joseantonio', 'Jose Antonio Cruz Lemus', '0');
+
+
+
+
+
+
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('1', 'Libro que enseña', 'Libro gordo de petete', '789562884', 'Didactico', 'Disponible', '10', 'Petete', '1');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('2', 'Libro que enseña', 'Libro Sistemas Operativos', '789562324', 'Didactico', 'Disponible', '15.76', 'Maria Jose Santofimia', '2');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('3', 'Aventuras fantasticas', 'Dragon Age Last Flight', '978178116', 'Fantasia', 'Disponible', '25.99', 'Liane Merciel', '3');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('4', 'Libro de Logica', 'Logica simbolica para Informaticos', '875465954', 'Fantasia', 'Disponible', '1000', 'Pascual Julian Iranzo', '4');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('5', 'Aventuras fantasticas', 'Dragon Age The Calling', '978076532', 'Fantasia', 'Disponible', '18.5', 'David Gaider', '5');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('6', 'Registro de grandes canciones', 'De Camino a Casa', '456257864', 'Musica', 'Disponible', '1500', 'joselemus#', '6');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('7', 'Historia de como el Big Data, Trump y Facebook rompieron la democracia y como puede volver a pasar', 'La Dictadura de los Datos', '978849139', 'Politica', 'Disponible', '18.9', 'Brittany Kaiser', '7');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('8', 'Leyes Políticas', 'Leyes Politicas del Estado', '978849197', 'Derecho', 'Disponible', '28.94', 'VV.AA.', '8');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('9', 'Biografia de Rajoy durante su gobierno', 'Una España Mejor', '978840102', 'Politica', 'Disponible', '21.9', 'Mariano Rajoy', '9');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('10', 'Historias asombrosas de las sustancias que lo controlan practicamente todo', 'El Poder de las Hormonas', '978849199', 'Ciencia', 'Disponible', '19.9', 'Randi Hutter Epstein', '10');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('11', 'Guia didactica', 'Aprender PHP, MYSQL y JAVASCRIPT', '978842672', 'Programacion', 'Disponible', '45.8', 'Robin Nixon', '11');
+INSERT INTO `PruebaBBDD`.`Libros` (`key`, `Descripcion`, `Titulo`, `ISBN`, `Genero`, `Estado`, `PVP`, `Autor`, `CodigoIdentificativo`) VALUES ('12', 'Guia didactica', 'Programacion Orientada a Objetos en Java', '978849964', 'Programacion', 'Disponible', '32.9', 'Francisco Blasco', '12');
